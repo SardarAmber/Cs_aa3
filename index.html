@@ -3,7 +3,7 @@
 
 <head>
 <title>BaryoBubble Pre-Order</title>
-
+<!--styelele  -->
 <style>
 
 body {
@@ -133,7 +133,7 @@ Submit Order
 
 <script>
 
-//////////// COOKIE FUNCTIONS ////////////
+//cookie func
 
 function setCookie(name, value, maxAge) {
 
@@ -164,7 +164,7 @@ return "";
 
 }
 
-//////////// VALIDATION ////////////
+//validation
 
 function validateForm(name, variant,
 quantity, pickup, address, terms) {
@@ -193,8 +193,7 @@ return errors;
 
 }
 
-//////////// HANDLE ORDER ////////////
-
+//handle the order
 function handleOrder() {
 
 document.getElementById("errorMsg").innerHTML = "";
@@ -237,7 +236,7 @@ return false;
 
 }
 
-//////// STORE DATA ////////
+//stores data
 
 setCookie(
 "customerName",
@@ -250,7 +249,7 @@ localStorage.setItem("quantity", quantity);
 localStorage.setItem("pickup", pickup);
 localStorage.setItem("address", address);
 
-//////// REDIRECT ////////
+//redirect users
 
 window.location.href = "summary.html";
 
@@ -258,7 +257,7 @@ return false;
 
 }
 
-//////////// LOAD PREVIOUS ORDER ////////////
+//load the previous order
 
 function loadPreviousOrder() {
 
