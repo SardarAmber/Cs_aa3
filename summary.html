@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Order Summary</title>
+
+<style>
+
+body {
+font-family: Arial;
+background-color: #f4f4f4;
+}
+
+.container {
+width: 500px;
+margin: auto;
+background: white;
+padding: 20px;
+border-radius: 10px;
+margin-top: 50px;
+box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Order Summary</h2>
+
+<p id="summary"></p>
+
+<p>
+Thank you for pre-ordering our Organic Herbal Soap, BaryoBubble!
+Your support helps promote sustainable hygiene solutions.
+</p>
+
+</div>
+
+<script>
+
+function getCookie(name) {
+
+let cookies =
+document.cookie.split(";");
+
+for (let i = 0; i < cookies.length; i++) {
+
+let c =
+cookies[i].trim();
+
+if (c.indexOf(name + "=") == 0) {
+
+return c.substring(name.length + 1);
+
+}
+
+}
+
+return "";
+
+}
+
+// get the datata
+
+let name =
+getCookie("customerName");
+
+let variant =
+localStorage.getItem("variant");
+
+let quantity =
+localStorage.getItem("quantity");
+
+let pickup =
+localStorage.getItem("pickup");
+
+let address =
+localStorage.getItem("address");
+
+// price
+
+let parts =
+variant.split("-");
+
+let product =
+parts[0];
+
+let price =
+parseFloat(parts[1]);
+
+let total =
+price * quantity;
+
+// displaayaya
+
+document.getElementById("summary").innerHTML =
+
+"<b>Name:</b> " + name + "<br>" +
+
+"<b>Product:</b> " + product + "<br>" +
+
+"<b>Quantity:</b> " + quantity + "<br>" +
+
+"<b>Total Amount:</b> PHP " + total.toFixed(2) + "<br>" +
+
+"<b>Pickup:</b> " + pickup + "<br>" +
+
+(pickup == "Delivery"
+? "<b>Address:</b> " + address
+: "");
+
+</script>
+
+</body>
+
+</html>
